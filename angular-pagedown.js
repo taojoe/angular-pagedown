@@ -23,7 +23,8 @@ angular.module("ui.pagedown", [])
             content: "=",
             showPreview: "@",
             help: "&",
-            insertImage: "&"
+            insertImage: "&",
+            options: '&'
         },
         link: function (scope, element, attrs) {
 
@@ -54,10 +55,9 @@ angular.module("ui.pagedown", [])
                 // redirect to the guide by default
                 $window.open("http://daringfireball.net/projects/markdown/syntax", "_blank");
             };
-
-            var editor = new Markdown.Editor(converter, "-" + editorUniqueId, {
-                handler: help
-            });
+            var options =scope.options ||{};
+            options.handler=help;
+            var editor = new Markdown.Editor(converter, "-" + editorUniqueId, options);
 
             var editorElement = angular.element(document.getElementById("wmd-input-" + editorUniqueId));
 
