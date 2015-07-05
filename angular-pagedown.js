@@ -24,7 +24,7 @@ angular.module("ui.pagedown", [])
             showPreview: "@",
             help: "&",
             insertImage: "&",
-            options: '&'
+            options: '='
         },
         link: function (scope, element, attrs) {
 
